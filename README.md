@@ -104,10 +104,18 @@ It's a demonstration of the viability of virtual threads in a highly concurrent,
 
 ## Comparison
 
-Target CPU: 2,3 GHz 8-Core Intel Core i9, 32 GM RAM
+Target CPU: 2,3 GHz 8-Core Intel Core i9, 32 GM RAM.
+
+Few notes to avoid result misinterpretation:
+
+* ~31-33 ticks/s is a maximum achievable score **on my machine** on this benchmark. Probably throttled by the console throughput, requires further investigation
+* The overall comparison is quite noisy 
+* Starting from ~20k virtual threads, Loom results become really noisy and may fluctuate by ~50%
+* This is not a real benchmark (in terms of precision, reproducibility and meticulous analysis) and should be treated as a toy example
+* This benchmark may compare incomparable: e.g. coroutines provide cancellation of of the box and use a tailored scheduler, while virtual threads leverage ForkJoinPool and use a different channel data structure
 
 | Target/Benchmark        | gosper_glider_gun.txt 0 2 2 212 189 | patterns/gosper_glider_gun.txt 0 2 2 106 189 | patterns/spaceship.txt 20 50 50 5 5 |
-|-------------------------|-------------------------------------|---------------------------------------------------------------------------------|-----------------------------------------------
-| Loom native image       | 8 ticks/s                           | 9 ticks/s                                                                      |                31 ticks/s
-| Coroutines native image | 33 ticks/s                          | 31 ticks/s                                                                      |                31 ticks/s 
+|-------------------------|-------------------------------------|----------------------------------------------|-----------------------------------------------
+| Loom native image       | 8 ticks/s                           | 12 ticks/s                                   |                31 ticks/s
+| Coroutines native image | 33 ticks/s                          | 31 ticks/s                                   |                31 ticks/s 
 
