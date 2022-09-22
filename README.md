@@ -100,3 +100,14 @@ That results in `50,002` virtual threads and `497,305` channels.
 ```
 
 It's a demonstration of the viability of virtual threads in a highly concurrent, computationally intensive application.
+
+
+## Comparison
+
+Target CPU: 2,3 GHz 8-Core Intel Core i9, 32 GM RAM
+
+| Target/Benchmark        | gosper_glider_gun.txt 0 2 2 212 189 | patterns/gosper_glider_gun.txt 0 2 2 106 189 | patterns/spaceship.txt 20 50 50 5 5 |
+|-------------------------|-------------------------------------|---------------------------------------------------------------------------------|-----------------------------------------------
+| Loom native image       | 8 ticks/s                           | 9 ticks/s                                                                      |                31 ticks/s
+| Coroutines native image | 33 ticks/s                          | 31 ticks/s                                                                      |                31 ticks/s 
+
