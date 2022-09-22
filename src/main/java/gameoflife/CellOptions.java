@@ -1,6 +1,7 @@
 package gameoflife;
 
 import java.util.List;
+import kotlinx.coroutines.channels.Channel;
 
 public record CellOptions(
         int row,
