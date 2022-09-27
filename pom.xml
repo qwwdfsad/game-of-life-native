@@ -98,7 +98,7 @@
                         <buildArgs>
                             <arg>--enable-preview</arg>
                             <arg>--install-exit-handlers</arg>
-                            <arg>-H:ReflectionConfigurationFiles=/Users/qwwdfsad/workspace/game-of-life-native/reflection.json</arg>
+                            <arg>-H:ReflectionConfigurationFiles=${project.basedir}/reflection.json</arg>
                             <!-- <arg>\-\gc=G1</arg> -->
                             <!-- <arg>\-\-pgo-instrument</arg> -->
                             <!-- <arg>\-\-pgo=${project.basedir}/default.iprof</arg> -->
